@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Öyküm Meze Evi — Menü</title>
+  <style>
+    :root {
+      --bg: #eae3d5;
+      --card: #fbf8f2;
+      --soft: #f2ece0;
+      --ink: #1f1916;
+      --muted: #66584f;
+      --olive: #2b4426;
+      --burgundy: #6e1e20;
+      --gold: #e7c578;
+      --border: #dcd2c0;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 840px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 8px 24px rgba(31, 25, 22, 0.08);
+    }
+
+    /* Üst Alan */
+    .header {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1.15fr;
+      gap: 10px;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 1;
+      color: var(--burgundy);
+      font-weight: 700;
+    }
+
+    .brand .sub {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: var(--olive);
+      margin-top: 2px;
+    }
+
+    .brand .desc {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* Kampanya Kartı */
+    .promo {
+      background: var(--olive);
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 8px 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .promo-kicker {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .promo-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .promo-sub {
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .promo-price {
+      background: var(--card);
+      color: var(--burgundy);
+      font-size: 14.5px;
+      font-weight: 800;
+      padding: 5px 9px;
+      border-radius: 7px;
+      white-space: nowrap;
+    }
+
+    /* Sağ Bağlantılar */
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 7px;
+      font-size: 10.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .btn-ig {
+      background: var(--burgundy);
+      color: #ffffff;
+    }
+
+    .btn-gg {
+      background: var(--olive);
+      color: #ffffff;
+    }
+
+    .btn-tel {
+      background: var(--soft);
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 4.5px 8px;
+      font-size: 10.5px;
+    }
+
+    .ig-icon {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    /* İnce Gerçek Fotoğraf Bandı (meze-sofrasi.jpg yüklenirse görünür) */
+    .hero-photo-wrap {
+      margin-top: 8px;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 54px;
+      border: 1px solid var(--border);
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Menü Sütunları */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 9px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--olive);
+      border-bottom: 1.5px solid var(--olive);
+      padding-bottom: 3px;
+      margin: 0 0 4px;
+    }
+
+    .section-title.mt {
+      margin-top: 9px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      padding: 2.3px 0;
+      border-bottom: 1px solid rgba(220, 210, 192, 0.7);
+      font-size: 11px;
+      line-height: 1.22;
+    }
+
+    .row:last-child {
+      border-bottom: none;
+    }
+
+    .name {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .note {
+      font-size: 9.2px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .price {
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      font-size: 10.3px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Alt Bilgi */
+    .footer {
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      font-size: 9.8px;
+      color: var(--muted);
+    }
+
+    .footer strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      color: var(--burgundy);
+      font-size: 11.5px;
+    }
+
+    @media (max-width: 640px) {
+      .header {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .hero-photo-wrap {
+        height: 44px;
+      }
+      .row {
+        font-size: 10.3px;
+        padding: 1.8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1>Öyküm</h1>
+        <div class="sub">MEZE EVİ</div>
+        <div class="desc">Ev ve iş yerlerine paket servisimiz vardır.</div>
+      </div>
+
+      <div class="promo">
+        <div>
+          <div class="promo-kicker">Kampanya</div>
+          <div class="promo-title">5 Çeşit Meze</div>
+          <div class="promo-sub">Seçeceğiniz 5 çeşit meze</div>
+        </div>
+        <div class="promo-price">475 ₺</div>
+      </div>
+
+      <div class="actions">
+        <div class="btn-row">
+          <a class="btn btn-ig" href="https://www.instagram.com/oykummeze/" target="_blank" rel="noopener noreferrer">
+            <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>@oykummeze</span>
+          </a>
+          <a class="btn btn-gg" href="https://share.google/Y2tXFjhmnEsHaRLqd" target="_blank" rel="noopener noreferrer">
+            <span>Google Hesabımız</span>
+          </a>
+        </div>
+        <a class="btn btn-tel" href="tel:+905402803547">Sipariş &amp; Rezervasyon: 0540 280 35 47</a>
+      </div>
+    </header>
+
+    <div class="hero-photo-wrap" id="photoWrap">
+      <img src="meze-sofrasi.jpg" alt="Öyküm Meze Evi" onerror="document.getElementById('photoWrap').style.display='none'" />
+    </div>
+
+    <main class="grid">
+      <section aria-label="Soğuk Mezeler">
+        <h2 class="section-title">Soğuk Mezeler</h2>
+        <div class="row"><span class="name">Haydari</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Atom</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Humus</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Şakşuka</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Kuru Patlıcan Biber Dolması</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Rus Salatası</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Pancar Salatası</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Köz Biber</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Babagannuş</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Cacık</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Fava</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Acılı Ezme</span><span class="price">200g 150₺ | 1kg 600₺</span></div>
+        <div class="row"><span class="name">Deniz Börülcesi</span><span class="price">500g 400₺</span></div>
+      </section>
+
+      <section aria-label="Diğer Ürünler ve İçecekler">
+        <h2 class="section-title">Diğer Ürünler</h2>
+        <div class="row"><span class="name">Sarma <span class="note">(Yaprak, zeytinyağlı)</span></span><span class="price">1kg 600₺</span></div>
+        <div class="row"><span class="name">Midye</span><span class="price">1kg 500₺</span></div>
+        <div class="row"><span class="name">Çiğ Köfte</span><span class="price">1kg 800₺</span></div>
+        <div class="row"><span class="name">İçli Köfte</span><span class="price">Adet 70₺</span></div>
+        <div class="row"><span class="name">Arnavut Ciğeri <span class="note">(250g + garnitür)</span></span><span class="price">450₺</span></div>
+        <div class="row"><span class="name">Tavuk Pilav + Ayran</span><span class="price">150₺</span></div>
+        <div class="row"><span class="name">Sade Pilav</span><span class="price">100₺</span></div>
+        <div class="row"><span class="name">Sporcu Tavuk Pilav + Ayran</span><span class="price">250₺</span></div>
+        <div class="row"><span class="name">Sigara Böreği</span><span class="price">Adet 20₺</span></div>
+
+        <h2 class="section-title mt">İçecekler</h2>
+        <div class="row"><span class="name">Su / Küçük Ayran / Büyük Ayran</span><span class="price">15₺ / 25₺ / 40₺</span></div>
+        <div class="row"><span class="name">Kutu Kola / Sprite / Ice Tea</span><span class="price">80₺ / 80₺ / 80₺</span></div>
+        <div class="row"><span class="name">Niğde Gazoz / Şişe Kola / Soda</span><span class="price">60₺ / 60₺ / 30₺</span></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Baş Pehlivan Kara Ali Cd. No: 133/1B, Örnekköy, Karşıyaka / İzmir</span>
+      <strong>Afiyet Olsun ♡</strong>
+    </footer>
+  </div>
+</body>
+</html>
